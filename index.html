@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d0b">
+  <meta name="description" content="Green Media — one hub for gaming, cars, family, BMX and action sports.">
+  <title>Green Media | Creator Hub</title>
+  <style>
+    :root {
+      --bg: #090c0a; --panel: #121713; --panel2: #171f19;
+      --green: #9cff57; --green2: #5ee28a; --text: #f3f7f1;
+      --muted: #9aa79b; --line: rgba(190,255,175,.13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+      radial-gradient(ellipse at 50% -15%, rgba(104,235,111,.17), transparent 42%),
+      radial-gradient(ellipse at 100% 35%, rgba(39,113,72,.12), transparent 35%), var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1060px, calc(100% - 40px)); margin: auto; }
+    header { padding: 27px 0 12px; display:flex; align-items:center; justify-content:space-between; }
+    .wordmark { display:flex; align-items:center; gap:11px; font-weight:900; letter-spacing:.12em; font-size: .88rem; }
+    .mark { width:30px; height:30px; border-radius:9px; display:grid; place-items:center; color:#081007; background:var(--green); font-weight:1000; letter-spacing:0; box-shadow:0 0 25px #9cff5740; }
+    .top-tag { color:var(--muted); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; }
+    .hero { text-align:center; padding:82px 0 54px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 13px; border:1px solid var(--line); border-radius:99px; color:#c7e7bd; background:#b6ff5b0b; font-size:.72rem; text-transform:uppercase; letter-spacing:.16em; }
+    .dot { width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 12px var(--green); }
+    h1 { margin:22px 0 12px; font-size:clamp(3.3rem, 10vw, 6.5rem); line-height:.95; letter-spacing:-.075em; font-weight:950; }
+    h1 span { color:var(--green); }
+    .intro { max-width:540px; margin:0 auto; color:var(--muted); font-size:1.02rem; line-height:1.7; }
+    .hero-links { margin-top:25px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+    .pill { border:1px solid var(--line); border-radius:99px; padding:10px 15px; font-size:.82rem; color:#dce8dc; background:#ffffff06; }
+    .section { padding: 22px 0 28px; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:15px; margin:0 0 17px; }
+    .section-kicker { color:var(--green); text-transform:uppercase; letter-spacing:.18em; font-size:.68rem; font-weight:800; }
+    h2 { margin:5px 0 0; font-size:1.55rem; letter-spacing:-.04em; }
+    .count { color:var(--muted); font-size:.78rem; }
+    .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:13px; }
+    .card {
+      min-height:178px; padding:20px; border-radius:18px; border:1px solid var(--line);
+      background:linear-gradient(145deg, #18221a, #101511 70%); position:relative; overflow:hidden;
+      display:flex; flex-direction:column; transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .card:hover { transform:translateY(-4px); border-color:#9cff5766; background:linear-gradient(145deg,#1d2b1e,#111713 70%); }
+    .card:after { content:""; position:absolute; width:140px; height:140px; right:-60px; top:-70px; border-radius:50%; background:#9cff5710; filter:blur(3px); }
+    .card-top { display:flex; justify-content:space-between; align-items:center; position:relative; z-index:1; }
+    .icon { width:38px; height:38px; border-radius:12px; display:grid; place-items:center; background:#9cff5714; border:1px solid #9cff5725; font-size:1.15rem; }
+    .platform { color:#aab8aa; font-size:.66rem; text-transform:uppercase; letter-spacing:.13em; }
+    .card h3 { margin:18px 0 5px; font-size:1.14rem; letter-spacing:-.025em; position:relative; z-index:1; }
+    .handle { color:var(--muted); font-size:.8rem; position:relative; z-index:1; }
+    .card-bottom { margin-top:auto; padding-top:17px; display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1; }
+    .visit { font-size:.77rem; font-weight:800; color:var(--green); }
+    .arrow { color:var(--green); font-size:1.1rem; }
+    .stats-note { margin:24px 0 0; padding:16px 18px; border:1px dashed #9cff5738; border-radius:14px; color:var(--muted); font-size:.82rem; line-height:1.55; background:#9cff5707; }
+    .stats-note strong { color:#d7f5c9; }
+    footer { margin-top:56px; padding:24px 0 38px; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:16px; color:var(--muted); font-size:.75rem; }
+    footer strong { color:#dce9d9; letter-spacing:.12em; }
+    @media (max-width:760px) { .grid { grid-template-columns:repeat(2,1fr); } .hero { padding:65px 0 43px; } }
+    @media (max-width:520px) { .wrap { width:min(100% - 28px, 1060px); } header { padding-top:20px; } .top-tag { font-size:.62rem; } .grid { grid-template-columns:1fr; } .card { min-height:155px; } .hero { padding:58px 0 35px; } footer { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="wordmark" href="#" aria-label="Green Media home"><span class="mark">G</span> GREEN MEDIA</a>
+      <span class="top-tag">One hub. All the channels.</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span> The creator network</div>
+        <h1>GREEN<br><span>MEDIA.</span></h1>
+        <p class="intro">Gaming, cars, family, BMX and everything in between. Pick a channel and come hang out.</p>
+        <div class="hero-links">
+          <a class="pill" href="#gaming">🎮 Gaming</a>
+          <a class="pill" href="#irl">🚘 IRL</a>
+          <a class="pill" href="#action">🚴 Action sports</a>
+        </div>
+      </section>
+
+      <section class="section" id="gaming">
+        <div class="section-head"><div><div class="section-kicker">01 / Play</div><h2>Gaming</h2></div><span class="count">03 channels</span></div>
+        <div class="grid">
+          <a class="card" href="https://youtube.com/@greenvsgames" target="_blank" rel="noopener"><div class="card-top"><span class="icon">🏎️</span><span class="platform">YouTube</span></div><h3>Forza</h3><div class="handle">@greenvsgames</div><div class="card-bottom"><span class="visit">VISIT CHANNEL</span><span class="arrow">↗</span></div></a>
+          <a class="card" href="https://youtube.com/@virtualridergreen" target="_blank" rel="noopener"><div class="card-top"><span class="icon">🛹</span><span class="platform">YouTube</span></div><h3>BMX Streets</h3><div class="handle">@virtualridergreen</div><div class="card-bottom"><span class="visit">VISIT CHANNEL</span><span class="arrow">↗</span></div></a>
+          <a class="card" href="https://youtube.com/@16bitgreen" target="_blank" rel="noopener"><div class="card-top"><span class="icon">⛏️</span><span class="platform">YouTube</span></div><h3>Minecraft</h3><div class="handle">@16bitgreen</div><div class="card-bottom"><span class="visit">VISIT CHANNEL</span><span class="arrow">↗</span></div></a>
+        </div>
+      </section>
+
+      <section class="section" id="irl">
+        <div class="section-head"><div><div class="section-kicker">02 / Off-screen</div><h2>IRL</h2></div><span class="count">02 channels</span></div>
+        <div class="grid">
+          <a class="card" href="https://youtube.com/@greenvscars" target="_blank" rel="noopener"><div class="card-top"><span class="icon">🚘</span><span class="platform">YouTube</span></div><h3>Cars</h3><div class="handle">@greenvscars</div><div class="card-bottom"><span class="visit">VISIT CHANNEL</span><span class="arrow">↗</span></div></a>
+          <a class="card" href="https://youtube.com/@greenkittyfam" target="_blank" rel="noopener"><div class="card-top"><span class="icon">🐈</span><span class="platform">YouTube</span></div><h3>Cats &amp; Family</h3><div class="handle">@greenkittyfam</div><div class="card-bottom"><span class="visit">VISIT CHANNEL</span><span class="arrow">↗</span></div></a>
+        </div>
+      </section>
+
+      <section class="section" id="action">
+        <div class="section-head"><div><div class="section-kicker">03 / Full send</div><h2>BMX &amp; Action Sports</h2></div><span class="count">02 channels</span></div>
+        <div class="grid">
+          <a class="card" href="https://youtube.com/@ridermrgreen" target="_blank" rel="noopener"><div class="card-top"><span class="icon">🚴</span><span class="platform">YouTube</span></div><h3>Riding</h3><div class="handle">@ridermrgreen</div><div class="card-bottom"><span class="visit">VISIT CHANNEL</span><span class="arrow">↗</span></div></a>
+          <a class="card" href="https://youtube.com/@fullcommitriding" target="_blank" rel="noopener"><div class="card-top"><span class="icon">⚡</span><span class="platform">YouTube</span></div><h3>Full Commit Riding</h3><div class="handle">@fullcommitriding</div><div class="card-bottom"><span class="visit">VISIT CHANNEL</span><span class="arrow">↗</span></div></a>
+        </div>
+      </section>
+
+      <div class="stats-note"><strong>Subscriber counts: coming in a future update.</strong> This first version is live-link ready. We can connect the YouTube Data API and add automatically refreshed counts once the site is published.</div>
+    </main>
+
+    <footer><strong>GREEN MEDIA</strong><span>Built for the things we create. © <span id="year"></span></span></footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
